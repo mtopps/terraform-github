@@ -7,14 +7,14 @@ Terraform repo to manage Github repositories
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.11.0 |
-| <a name="requirement_github"></a> [github](#requirement\_github) | 6.5.0 |
-| <a name="requirement_infisical"></a> [infisical](#requirement\_infisical) | 0.12.10 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | 6.6.0 |
+| <a name="requirement_infisical"></a> [infisical](#requirement\_infisical) | 0.15.17 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_infisical"></a> [infisical](#provider\_infisical) | 0.12.10 |
+| <a name="provider_infisical"></a> [infisical](#provider\_infisical) | 0.15.17 |
 
 ## Modules
 
@@ -26,8 +26,8 @@ Terraform repo to manage Github repositories
 
 | Name | Type |
 |------|------|
-| [infisical_projects.main](https://registry.terraform.io/providers/Infisical/infisical/0.12.10/docs/data-sources/projects) | data source |
-| [infisical_secrets.common_secrets](https://registry.terraform.io/providers/Infisical/infisical/0.12.10/docs/data-sources/secrets) | data source |
+| [infisical_projects.main](https://registry.terraform.io/providers/Infisical/infisical/0.15.17/docs/data-sources/projects) | data source |
+| [infisical_secrets.common_secrets](https://registry.terraform.io/providers/Infisical/infisical/0.15.17/docs/data-sources/secrets) | data source |
 
 ## Inputs
 

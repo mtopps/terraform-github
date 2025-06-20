@@ -2,6 +2,7 @@ locals {
   github_repositories = {
     "terraform-github" = {
       description            = "Terraform repo to manage Github repositories"
+      visibility             = "public"
       topics                 = ["terraform", "github"]
       auto_init              = true
       has_issues             = true
