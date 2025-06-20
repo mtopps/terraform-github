@@ -44,12 +44,14 @@ graph TB
 ### 🔧 Setup
 
 1. **Clone the repository**:
+
    ```bash
    git clone <repository-url>
    cd terraform-github
    ```
 
 2. **Configure your environment**:
+
    ```bash
    # Set required environment variables
    export TF_VAR_infisical_client_id="your-client-id"
@@ -58,16 +60,19 @@ graph TB
    ```
 
 3. **Initialize Terraform**:
+
    ```bash
    terraform init
    ```
 
 4. **Plan your changes**:
+
    ```bash
    terraform plan
    ```
 
 5. **Apply the configuration**:
+
    ```bash
    terraform apply
    ```
@@ -92,6 +97,38 @@ terraform-github/
 - **Least Privilege Access**: Repository permissions follow the principle of least privilege
 - **Branch Protection**: Automatic branch protection rules for critical branches
 
+## 🔍 Development Workflow
+
+### Pre-commit Hooks
+
+This project uses [pre-commit](https://pre-commit.com/) to ensure code quality and security standards before commits:
+
+```bash
+# Install pre-commit
+pip install pre-commit
+
+# Install the git hook scripts
+pre-commit install
+
+# (Optional) Run against all files
+pre-commit run --all-files
+```
+
+**Configured Hooks:**
+- **terraform_fmt**: Automatically formats Terraform files
+- **terraform_validate**: Validates Terraform configuration syntax
+- **terraform_docs**: Updates documentation automatically
+- **detect-secrets**: Scans for potential secrets in code
+- **end-of-file-fixer**: Ensures files end with a newline
+- **trailing-whitespace**: Removes trailing whitespace
+- **check-merge-conflict**: Prevents committing merge conflict markers
+
+### Code Quality Standards
+
+- **Terraform Formatting**: All `.tf` files must pass `terraform fmt`
+- **Documentation**: Auto-generated with `terraform-docs`
+- **Security Scanning**: Automated secret detection and security checks
+- **Validation**: All configurations validated before commit
 
 ## 📝 License
 
