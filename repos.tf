@@ -2,6 +2,7 @@ locals {
   github_repositories = {
     "terraform-github" = {
       description            = "Terraform repo to manage Github repositories"
+      visibility             = "public"
       topics                 = ["terraform", "github"]
       auto_init              = true
       has_issues             = true
@@ -25,6 +26,7 @@ locals {
     }
     "terraform-gcp-org" = {
       description            = "Terraform repo to manage GCP Organization"
+      visibility             = "public"
       topics                 = ["terraform", "gcp"]
       auto_init              = true
       has_issues             = true
@@ -52,6 +54,7 @@ locals {
     }
     "github-workflows" = {
       description            = "Repo to store workflow templates"
+      visibility             = "public"
       topics                 = ["github", "workflows"]
       auto_init              = true
       has_issues             = true
@@ -87,6 +90,7 @@ locals {
     }
     "terraform-templates" = {
       description            = "Terraform template repository"
+      visibility             = "public"
       topics                 = ["terraform", "github"]
       auto_init              = true
       has_issues             = true
