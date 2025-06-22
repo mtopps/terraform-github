@@ -14,14 +14,26 @@ locals {
       }
     }
     "terraform-github-repositories" = {
-      description            = "Terraform module to provision Github repositories"
+      description            = "Opinionated Terraform module to provision Github repositories"
       visibility             = "public"
-      topics                 = ["terraform", "github"]
+      topics                 = ["terraform"]
       auto_init              = true
       has_issues             = false
       vulnerability_alerts   = true
       delete_branch_on_merge = true
       allow_rebase_merge     = false
+      exclude_secrets        = true
+    }
+    "terraform-github-workflows" = {
+      description            = "Repo to store workflow templates"
+      visibility             = "public"
+      topics                 = ["github", "workflows"]
+      auto_init              = true
+      has_issues             = true
+      has_projects           = true
+      vulnerability_alerts   = true
+      delete_branch_on_merge = true
+      actions_variables      = {}
       exclude_secrets        = true
     }
     "terraform-gcp-org" = {
@@ -41,7 +53,7 @@ locals {
     }
     "terraform-gcp-workforce-identity-federation" = {
       description            = "Terraform repo to manage GCP Workforce Identity Federation"
-      topics                 = ["github", "terraform"]
+      topics                 = ["terraform", "gcp"]
       gitignore_template     = "Terraform"
       auto_init              = true
       has_issues             = true
@@ -51,18 +63,6 @@ locals {
       actions_variables = {
         "GCP_BUCKET_PREFIX" = data.infisical_secrets.common_secrets.secrets.GCE_WIF_TERRAFORM_STATE_PATH.value
       }
-    }
-    "github-workflows" = {
-      description            = "Repo to store workflow templates"
-      visibility             = "public"
-      topics                 = ["github", "workflows"]
-      auto_init              = true
-      has_issues             = true
-      has_projects           = true
-      vulnerability_alerts   = true
-      delete_branch_on_merge = true
-      actions_variables      = {}
-      exclude_secrets        = true
     }
     "terraform-gcp-network" = {
       description            = "Terraform repo to manage GCP Networks"
@@ -88,10 +88,10 @@ locals {
         "GCP_BUCKET_PREFIX" = data.infisical_secrets.common_secrets.secrets.GCE_CLOUDFLARE_TERRAFORM_STATE_PATH.value
       }
     }
-    "terraform-templates" = {
-      description            = "Terraform template repository"
+    "terraform-tmpl-gcp" = {
+      description            = "Terraform template repository for GCP"
       visibility             = "public"
-      topics                 = ["terraform", "github"]
+      topics                 = ["terraform", "github", "template"]
       auto_init              = true
       has_issues             = true
       has_projects           = true
@@ -101,10 +101,36 @@ locals {
       action_variables       = {}
       exclude_secrets        = true
     }
-    "docker-compose" = {
-      description            = "Docker compose repository"
-      topics                 = ["docker", "compose"]
-      auto_init              = false
+    "terraform-tmpl-aws" = {
+      description            = "Terraform template repository for AWS"
+      visibility             = "public"
+      topics                 = ["terraform", "github", "template"]
+      auto_init              = true
+      has_issues             = true
+      has_projects           = true
+      is_template            = true
+      vulnerability_alerts   = true
+      delete_branch_on_merge = true
+      action_variables       = {}
+      exclude_secrets        = true
+    }
+    "terraform-tmpl-azure" = {
+      description            = "Terraform template repository for Azure"
+      visibility             = "public"
+      topics                 = ["terraform", "github", "template"]
+      auto_init              = true
+      has_issues             = true
+      has_projects           = true
+      is_template            = true
+      vulnerability_alerts   = true
+      delete_branch_on_merge = true
+      action_variables       = {}
+      exclude_secrets        = true
+    }
+    "media-ops" = {
+      description            = "Media server setup with ansible and docker compose"
+      topics                 = ["ansible", "media", "server", "docker"]
+      visibility             = "public"
       has_issues             = true
       has_projects           = true
       vulnerability_alerts   = true
@@ -117,7 +143,7 @@ locals {
 
 
 module "github_repos" {
-  source   = "git::https://github.com/mtopps/terraform-github-repositories.git?ref=v0.0.1"
+  source   = "git::https://github.com/mtopps/terraform-github-repositories.git?ref=v0.1.0"
   for_each = local.merged_repositories
 
   name                   = try(each.key, "")
