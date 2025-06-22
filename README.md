@@ -11,7 +11,6 @@ This Terraform configuration provides a centralized approach to managing multipl
 ### 🎯 Key Features
 
 - **🏗️ Automated Repository Management**: Create and configure GitHub repositories programmatically
-- **🔒 Security-First Approach**: Integrates with Infisical for secure credential management
 - **📦 Modular Architecture**: Uses custom Terraform modules for reusable repository configurations
 - **🔄 State Management**: Configured with remote backend for team collaboration
 - **📊 Comprehensive Documentation**: Auto-generated documentation with terraform-docs
@@ -79,7 +78,7 @@ graph TB
 
 ## 📁 Project Structure
 
-```
+```bash
 terraform-github/
 ├── backend.tf          # Remote state configuration
 ├── data_sources.tf     # Data source definitions
@@ -115,6 +114,7 @@ pre-commit run --all-files
 ```
 
 **Configured Hooks:**
+
 - **terraform_fmt**: Automatically formats Terraform files
 - **terraform_validate**: Validates Terraform configuration syntax
 - **terraform_docs**: Updates documentation automatically
@@ -129,10 +129,6 @@ pre-commit run --all-files
 - **Documentation**: Auto-generated with `terraform-docs`
 - **Security Scanning**: Automated secret detection and security checks
 - **Validation**: All configurations validated before commit
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -155,7 +151,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_github_repos"></a> [github\_repos](#module\_github\_repos) | git::https://github.com/mtopps/terraform-github-repositories.git | v0.0.1 |
+| <a name="module_github_repos"></a> [github\_repos](#module\_github\_repos) | git::https://github.com/mtopps/terraform-github-repositories.git | v0.1.0 |
 
 ## Resources
 
